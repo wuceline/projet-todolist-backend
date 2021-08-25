@@ -60,8 +60,15 @@ class CategoryController extends Controller{
               'status' => 1
             ],
         ];
-        $categoryToReturn = $categoriesList[$id];
-        return response()->json($categoryToReturn);
+
+
+
+        if(array_key_exists($id, $categoriesList)){
+            $categoryToReturn = $categoriesList[$id];
+            return response()->json($categoryToReturn);
+        }else{
+            abort(404);
+        }
 
     }
 
