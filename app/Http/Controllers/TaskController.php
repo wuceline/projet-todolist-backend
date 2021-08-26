@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use DB;
 use Illuminate\Http\Request;
+use Laravel\Lumen\Http\ResponseFactory;
 
 
 class TaskController extends Controller
@@ -23,19 +24,23 @@ class TaskController extends Controller
 
     public function create(Request $request)
     {
-
         $title = $request->input('title');
-        $categoryId = $request->input('categoryId');
+        $category_id = $request->input('category_id');
         $completion = $request->input('completion');
         $status = $request->input('status');
 
-        $newTask =[
-        'title' => $title,
-        'categoryId' => $categoryId,
-        'completion' => $completion,
-        'status' => $status,
+        $newTask = new Task;
 
-        ];
-        return response()->json($newTask);
+        $newTask->title = $title;
+        $newTask->category_id = $category_id;
+        $newTask->completion = $completion;
+        $newTask->status = $status;
+
+        if($newTask->save()){
+            return response()->json($newTask, 200);
+        }else{
+            return response()->json(['error' => 'Internal Server Error'], 500);
+            };
+
     }
 }
