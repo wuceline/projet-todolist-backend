@@ -45,8 +45,16 @@ $router->get(
 
 $router->get(
     '/tasks/{id}',
-        [
-            'uses' => 'TaskController@item',
-            'as'   => 'task-item'
-        ]
+    [
+        'uses' => 'TaskController@item',
+        'as'   => 'task-item'
+    ]
+);
+
+$router->post(
+    '/tasks',
+    [
+        'uses' => 'TaskController@create',
+        'as'   => 'task-add'
+    ]
     );
