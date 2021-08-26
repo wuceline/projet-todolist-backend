@@ -60,7 +60,7 @@ class TaskController extends Controller
         $task->completion = $completion;
         $task->status = $status;
 
-        if (isset($id)) {
+        if ($id) {
             if ($task->save()) {
                 return response()->json(['created' => "ok"], 200);
             } else {
