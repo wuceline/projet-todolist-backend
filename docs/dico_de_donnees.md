@@ -5,10 +5,10 @@
 |Champ|Type|Spécificités|Description|
 |-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de notre tâche|
-|title|VARCHAR(64)|NOT NULL|Le nom de la tâche|
+|title|VARCHAR(128)|NOT NULL|Le nom de la tâche|
 |completion|INT|DEFAULT 0|L'avancement de la tâche|
 |category_id|ENTITY|NOT NULL|La catégorie de la tâche|
-|status|TINYINT(1)|NOT NULL|Le statut de la tâche, archivée ou non|
+|status|TINYINT(1)|NOT NULL|Le statut de la tâche, 2 = archivée ou 1 = non|
 |created_at|TIMESTAMP|NOT NULL, DEFAULT CURRENT_TIMESTAMP|La date de création de la tache|
 |updated_at|TIMESTAMP|NULL|La date de la dernière mise à jour du tache|
 
