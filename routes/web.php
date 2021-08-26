@@ -34,3 +34,19 @@ $router->get(
         'as'   => 'category-item'
     ]
 );
+
+$router->get(
+    '/tasks',
+    [
+        'uses' => 'TaskController@list',
+        'as'   => 'task-list'
+    ]
+);
+
+$router->get(
+    '/tasks/{id}',
+        [
+            'uses' => 'TaskController@item',
+            'as'   => 'task-item'
+        ]
+    );
