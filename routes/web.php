@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,25 @@ $router->post(
     '/tasks',
     [
         'uses' => 'TaskController@create',
-        'as'   => 'task-add'
+        'as'   => 'task-add',
     ]
-    );
+);
+
+$router->put(
+    '/tasks/{id}',
+    [
+        'uses' => 'TaskController@put',
+        'as'   => 'task-put'
+    ]
+);
+
+
+// $router->post(
+//     '/tasks',
+//     function(Request $request){
+//         $this->validate($request, [
+//             'title' => 'required',
+//             'category_id' => 'required'
+//         ]);
+//     }
+// );
